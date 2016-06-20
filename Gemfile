@@ -12,15 +12,17 @@ source 'https://rubygems.org'
    gem 'sqlite3'
  end
 
+ gem 'bootstrap-sass', '~> 3.3.6'
  gem 'sass-rails', '~> 5.0'
  gem 'uglifier', '>= 1.3.0'
  gem 'coffee-rails', '~> 4.1.0'
  gem 'jquery-rails'
  gem 'turbolinks'
- gem 'bootstrap'
  gem 'figaro'
  gem 'pry'
- gem 'bootstrap-sass'
+ gem 'devise'
+ gem 'awesome_print', :require => 'ap'
+ gem 'nyan-cat-formatter'
 
  group :development, :test do
    gem 'byebug'
