@@ -12,7 +12,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @registered_application.user %>
+  <%= @registered_application.user.email %>
 </p>
 
 <%= link_to 'Edit', edit_registered_application_path(@registered_application) %> |
