@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :registered_application do
-    name "MyString"
-    url "MyString"
-    user nil
+    name "NameString"
+    url "http://www.urlString.com"
+    user
   end
 end
