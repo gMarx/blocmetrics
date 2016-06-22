@@ -8,6 +8,7 @@ class RegisteredApplicationsController < ApplicationController
 
   # GET /registered_applications/1
   def show
+    @events = @registered_application.events.group_by(&:event_name)
   end
 
   # GET /registered_applications/new

@@ -15,5 +15,10 @@
   <%= @registered_application.user.email %>
 </p>
 
+<% @events.each do |e| %>
+<p>  <%= e.first %>
+</p>
+<% end %>
+
 <%= link_to 'Edit', edit_registered_application_path(@registered_application) %> |
 <%= link_to 'Back', registered_applications_path %>
