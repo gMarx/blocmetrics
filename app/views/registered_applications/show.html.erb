@@ -15,10 +15,30 @@
   <%= @registered_application.user.email %>
 </p>
 
-<% @events.each do |e| %>
-<p>  <%= e.first %>
-</p>
-<% end %>
 
-<%= link_to 'Edit', edit_registered_application_path(@registered_application) %> |
-<%= link_to 'Back', registered_applications_path %>
+<div class="row col-md-8">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Event Name</th>
+        <th>Date Created</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @events.each do |e| %>
+        <% e.second.each do |i|  %>
+          <tr>
+            <td><%= i.event_name %></td>
+            <td><%= i.created_at %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="row col-md-8">
+  <%= link_to 'Edit', edit_registered_application_path(@registered_application) %> |
+  <%= link_to 'Back', registered_applications_path %>
+</div>

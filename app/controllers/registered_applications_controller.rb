@@ -3,7 +3,7 @@ class RegisteredApplicationsController < ApplicationController
 
   # GET /registered_applications
   def index
-    @registered_applications = RegisteredApplication.where( user_id: current_user.id )
+    @registered_applications = current_user.registered_applications
   end
 
   # GET /registered_applications/1
