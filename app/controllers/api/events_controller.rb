@@ -1,15 +1,8 @@
 class API::EventsController < ApplicationController
 
   before_filter :set_access_control_headers
-
-# should this be private?
-  def set_access_control_headers
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
-    headers['Acces-Control-Allow-Headers'] =  'Content-Type'
-  end
-
-  skip_before_action :verify_authenticity_token
+  skip_before_action :authenticate_user!
+  skip_before_filter :verify_authenticity_token
 
   def create
     registered_application = RegisteredApplication.find_by(url: request.env['HTTP_ORIGIN'])
@@ -20,7 +13,6 @@ class API::EventsController < ApplicationController
     end
 
     # Create a new event associated with the registered_application (the event creation code will need to call the event_params method).
-
     event = Event.new( event_params )
 
     if event.save
@@ -39,4 +31,13 @@ class API::EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name)
   end
+
+  def set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
+    headers['Acces-Control-Allow-Headers'] =  'Content-Type'
+  end
+
 end
+
+
