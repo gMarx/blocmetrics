@@ -37,10 +37,12 @@ class API::EventsController < ApplicationController
   def set_access_control_headers
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
-    headers['Acces-Control-Allow-Headers'] =  'Content-Type'
+    headers['Access-Control-Allow-Headers'] = '*'
+    # x-requested-with,If-Modified-Since,If-None-Match,Content-Type
   end
 
 end
+
 
 
 
