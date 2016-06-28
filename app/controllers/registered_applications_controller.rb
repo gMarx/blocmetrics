@@ -4,6 +4,9 @@ class RegisteredApplicationsController < ApplicationController
   # GET /registered_applications
   def index
     @registered_applications = current_user.registered_applications
+    names = @registered_applications.group(:name).map{ |n| n.name }
+    counts = @registered_applications.group(:name).map{ |n| n.events.count }
+    @pie_data = Hash[names.zip(counts)]
   end
 
   # GET /registered_applications/1
