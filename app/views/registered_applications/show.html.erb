@@ -15,6 +15,7 @@
   <%= @registered_application.user.email %>
 </p>
 
+<%= pie_chart @registered_application.events.group(:event_name).count %>
 
 <div class="row col-md-8">
   <table class="table table-striped">

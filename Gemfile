@@ -24,6 +24,7 @@ source 'https://rubygems.org'
  gem 'devise'
  gem 'awesome_print', :require => 'ap'
  gem 'nyan-cat-formatter'
+ gem 'chartkick'
 
  group :development, :test do
    gem 'byebug'
